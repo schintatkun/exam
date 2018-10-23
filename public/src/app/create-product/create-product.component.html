@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>New Product</h1>
+    <div *ngIf="error">Backend Validation
+    <p *ngIf="error['name']">{{error['name']['message']}}</p>
+    <p *ngIf="error['qty']">{{error['qty']['message']}}</p>
+    <p *ngIf="error['price']">{{error['price']['message']}}</p>
+    </div>
+    
+    <label>Name</label>
+    <input name="myName" type="text" required minlength="3" [(ngModel)]="product.name" #myName="ngModel"/>
+    <p class="showerror" *ngIf="!myName.valid">{{myName.errors | json}}</p><br>
+    <label>Qty</label><input name="qty" type="text" required [(ngModel)]="product.qty" #myqty="ngModel"/>
+    <p class="showerror" *ngIf="!myqty.valid">{{myqty.errors | json}}</p><br>
+    <label>Price</label><input name="myPrice" required type="text" [(ngModel)]="product.price" #myPrice="ngModel"/>
+    <p class="showerror" *ngIf="!myPrice.valid">{{myPrice.errors | json}}</p><br>
+    <button (click)="resetForm()">Reset</button>
+    <button (click)="newProduct()" *ngIf="myName.valid && myqty.valid && myPrice.valid">Create</button>
+    
+    </div>

@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Product Details</h1>
+    <p>To delete a product, the Qty must be 0</p>
+    <div *ngIf="product">
+    <p>Name: {{product.name}}</p>
+    <p>Qty: {{product.qty}}</p>
+    <p>Price: {{product.price}}</p>
+    <a href="/products"><button>Back</button></a> 
+    <!-- <button *ngIf="product.qty==0" (click)="deleteProduct(product._id)">Delete</button>  -->
+    <button (click)="deleteProduct(product._id)">Delete</button>
+    </div>
+</div>
+    

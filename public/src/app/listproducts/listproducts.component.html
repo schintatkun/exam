@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="header">Product List</h1>
+    <a href="/products/new" class="newProduct"><button style="font-size: 20px;">Add New Product</button></a>
+    <table class="mytable" *ngIf="Products">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Name</td>
+          <td>Qty</td>
+          <td>Price</td>
+          <td>Action</td>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of Products">
+        <td>{{product._id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.qty}}</td>
+        <td>${{product.price | number:'1.2-2'}}</td>
+        <td><a href="/products/{{product._id}}/edit"><button>Edit</button></a> | <a href="/products/{{product._id}}"><button>Details</button></a></td>
+      </tr>
+    </tbody>
+    </table>
+    </div>
+    
